@@ -1,0 +1,127 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{txfonts}
+\usepackage{tkz-euclide}
+\usepackage{listings}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{gvv}
+\usepackage{lmodern}
+\usepackage{circuitikz}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,breakable,xparse,skins}
+
+
+
+\definecolor{bg}{gray}{0.95}
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
+  breakable=true,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={%
+    linenos,
+    gobble=0,
+    breaklines=true,
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={%
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}},
+  #3,
+}
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    commentstyle=\color{green!60!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    showstringspaces=false,
+}
+
+\title 
+{5.2.64}
+\date{October 12, 2025}
+
+
+\author 
+{Vivek K Kumar - EE25BTECH11062}
+
+
+
+\begin{document}
+
+
+\frame{\titlepage}
+\begin{frame}{Question}
+Solve for the following system of linear equations:
+\begin{align*}
+\vec{X} + \vec{Y} = \myvec{7 & 0 \\ 2 & 5}\\
+\vec{X} - \vec{Y} = \myvec{3 & 0 \\ 0 & 4}\\
+\end{align*}
+\end{frame}
+
+\begin{frame}{Solution}
+The given system can be represented as:
+\begin{align}
+    \myvec{\vec{I} & \vec{I} \\ \vec{I} & -\vec{I}}\myvec{\vec{X} \\ \vec{Y}} = \myvec{7 & 0 \\ 2 & 5 \\ 3& 0 \\ 0 & 4} 
+\end{align}
+Solving the equation,
+\begin{align}
+    \myvec{\vec{X} \\ \vec{Y}} = \myvec{1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 0 & -1 & 0 \\ 0 & 1 & 0 & -1} ^{-1} \myvec{7 & 0 \\ 2 & 5 \\ 3& 0 \\ 0 & 4} \\
+    \myvec{\vec{X} \\ \vec{Y}} = \frac{1}{2}\myvec{1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 0 & -1 & 0 \\ 0 & 1 & 0 & -1} \myvec{7 & 0 \\ 2 & 5 \\ 3& 0 \\ 0 & 4}
+\end{align}
+\end{frame}
+\begin{frame}{Solution}
+\begin{align}
+     \myvec{\vec{X} \\ \vec{Y}} = \myvec{5 & 0 \\ 1 & 9/2 \\ 2 & 0 \\ 1 & 1/2}
+\end{align}
+Hence, the matrices are given by
+\begin{align}
+    \vec{X} = \myvec{5 & 0 \\ 1 & 9/2}\\
+    \vec{Y} = \myvec{2 & 0 \\ 1 & 1/2}
+\end{align}
+\end{frame}
+
+\begin{frame}{Results}
+\begin{table}[H]    
+  \centering
+  \input{../tables/table.tex}
+  \caption{Results}
+  \label{tab:5.2.64}
+\end{table}
+
+\end{frame}
+\end{document}
