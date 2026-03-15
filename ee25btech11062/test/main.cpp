@@ -18,7 +18,7 @@ int main(void) {
 
         // Set Pin 13 LOW
         PORTB &= ~(1 << PORTB5);
-        _delay_ms(1000);
+        _delay_ms(2000);
     }
 
     return 0;
