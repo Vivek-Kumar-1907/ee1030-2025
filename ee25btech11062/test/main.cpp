@@ -14,11 +14,11 @@ int main(void) {
     while (1) {
         // Set Pin 13 HIGH (PORTB5)
         PORTB |= (1 << PORTB5);
-        _delay_ms(100);
+        _delay_ms(1000);
 
         // Set Pin 13 LOW
         PORTB &= ~(1 << PORTB5);
-        _delay_ms(100);
+        _delay_ms(1000);
     }
 
     return 0;
